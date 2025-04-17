@@ -1,66 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzaria Polar</title>
-    <link rel="stylesheet" href="style/home.css">
-    <link rel="icon" href="img/logo pizzaria.jpg" type="image/jpg">
-    <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
-    crossorigin="anonymous"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzaria Polar</title>
+  <link rel="stylesheet" href="style/home.css">
+  <link rel="stylesheet" href="style/stylesGerais.css">
+  <link rel="icon" href="img/logo pizzaria.jpg" type="image/jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    <h1>Pizzaria Polar</h1>
+    <nav id="menu">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
-        <h1>Pizzaria Polar</h1>
-        <nav id="menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="4000">
-            <img src="img/pizza-carrossel-1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="img/pizza-carrossel-2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="img/pizza-carrossel-3.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+  <!-- Carrossel -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/pizza-carrossel-1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/pizza-carrossel-2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/pizza-carrossel-3.jpg" class="d-block w-100" alt="...">
+      </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-      <main>
-        <section id="pizzas-mais-pedidas">
-            <h2 class="titulo">As mais amadas pelos clientes!</h3>
-                <ul>
-                    <li class="rank-pizzas"><img src="img/pizza-carrossel-1.jpg" alt="Segunda pizza mais pedida" id="segundo-lugar"><span class="descricao-rank-pizza">🥈 Calabresa com queijo</span></li>
-                    <li class="rank-pizzas"><img src="img/pizza-carrossel-1.jpg" alt="Pizza mais pedida" id="primeiro-lugar"><span class="descricao-rank-pizza"> 🥇 Brocólis</span></li>
-                    <li class="rank-pizzas"><img src="img/pizza-carrossel-1.jpg" alt="Terceira pizza mais pedida" id="terceiro-lugar"><span class="descricao-rank-pizza">🥉 Frango com catupiry</span></li>
-                </ul>
-        </section>
-      </main>
+  <main>
+    <section id="pizzas-mais-pedidas">
+      <h2 class="titulo">As mais amadas pelos clientes!</h3>
+        <ul>
+          <li class="rank-pizzas"><img src="img/pizza-segundo-lugar.jpg" alt="Segunda pizza mais pedida"
+              id="segundo-lugar"><span class="descricao-rank-pizza">🥈 Calabresa com queijo</span></li>
+          <li class="rank-pizzas"><img src="img/pizza-primeiro-lugar.jpg" alt="Pizza mais pedida"
+              id="primeiro-lugar"><span class="descricao-rank-pizza"> 🥇 Brocólis</span></li>
+          <li class="rank-pizzas"><img src="img/pizza-terceiro-lugar.jpg" alt="Terceira pizza mais pedida"
+              id="terceiro-lugar"><span class="descricao-rank-pizza">🥉 Frango com catupiry</span></li>
+        </ul>
+    </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="promocoes">
+      <h2 class="titulo">Ofertas especiais!</h2>
+
+      <div class="promocao">
+        <img src="img/pizza-promocao-1.jpg" alt="Oferta do dia" class="img-promocao">
+        <div class="texto-promocao">
+          <h3>Adoçando seu dia!</h3>
+          <p>Bateu aquela vontade de comer uma pizza de chocolate?</p>
+          <p>20% de desconto na compra de qualquer pizza doce!</p>
+        </div>
+      </div>
+
+      <div class="promocao">
+        <img src="img/pizza-promocao-2.jpg" alt="Oferta do dia" class="img-promocao">
+        <div class="texto-promocao">
+          <h3>2 pizzas = refri grátis!</h3>
+          <p>Na compra de duas pizzas de qualquer sabor, o refrigerante sai por nossa conta!</p>
+        </div>
+      </div>
+
+      <div class="promocao">
+        <img src="img/pizza-promocao-2.jpg" alt="Oferta do dia" class="img-promocao">
+        <div class="texto-promocao">
+          <h3>Outra promoção qualquer!</h3>
+          <p>Não pensei em nenhuma promoção por enquanto, então finja que há algo de relevante escrito!!!!</p>
+          <p>IMPERDÍVEL</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="img/logo pizzaria.jpg" alt="Logo Pizzaria Polar">
+        <h4>Pizzaria Polar</h4>
+      </div>
+      
+      <div class="footer-info">
+        <p><strong>Endereço:</strong> Rua das Pizzas, 123 - São Paulo, SP</p>
+        <p><strong>Telefone:</strong> (11)4002-8922</p>
+        <p><strong>Email:</strong> contato@pizzariapolar.com</p>
+      </div>
+  
+      <div class="footer-social">
+        <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pizzaria Polar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
