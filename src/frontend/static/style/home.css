@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -66,4 +65,83 @@ header h2 {
 #logo {
     height: 60px;
     margin-right: 15px;
+}
+
+/* Carrossel */
+.carousel-item img {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Conteúdo principal */
+main {
+    /* background-color: gray;  */
+    padding: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #b30000; 
+    text-shadow: 1px 1px 2px #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 3px solid #b30000;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Pizzas mais pedidas */
+#pizzas-mais-pedidas {
+    /* background-color: #f37070; */
+    border-radius: 30px;
+    padding: 30px;
+}
+
+#pizzas-mais-pedidas ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+#pizzas-mais-pedidas ul li img{
+    height: 225px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#primeiro-lugar {
+    border: 7px solid gold;
+    border-radius: 30px;
+}
+
+#segundo-lugar {
+    border: 7px solid silver;
+    border-radius: 30px;
+    margin-top: 50px;
+}
+
+#terceiro-lugar {
+    border: 7px solid #cd7f32;
+    border-radius: 30px;
+    margin-top: 80px;
+}
+
+.rank-pizzas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.descricao-rank-pizza {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
