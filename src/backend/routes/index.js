@@ -1,22 +1,16 @@
 import express from 'express';
-import userRoutes from './userRoutes.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-const __arquivoAtualURL = fileURLToPath(import.meta.url); // Caminho do arquivo atual como URL
-const __diretorioAtual = path.dirname(__arquivoAtualURL); // Caminho do diretório atual como path
-const frontendPath = path.join(__diretorioAtual, '..', '..', 'frontend'); // Caminho do diretório 'frontend' em relação ao arquivo atual
+import userRoutes from './userRoutes.js';
+import frontendRoutes from './frontendRoutes.js';
+
+const __arquivoAtualURL = fileURLToPath(import.meta.url);
+const __diretorioAtual = path.dirname(__arquivoAtualURL);
+const frontendPath = path.join(__diretorioAtual, '..', '..', 'frontend');
 
 const routes = (app) => {
-    app.get('/', (req, res) => {
-        res.redirect('/home');
-      });
-
-      app.get('/home', (req, res) => {
-        res.sendFile(path.join(frontendPath, 'home.html'));
-      });
-
-    app.use(express.json(), userRoutes);
+    app.use(express.json(), userRoutes, frontendRoutes);
     app.use(express.static(path.join(frontendPath, 'static')));
 }
 
