@@ -8,12 +8,18 @@
     padding: 20px;
 }
 
-#logo {
+#logo-link {
     position: absolute;
-    height: 60px;
-    border-radius: 50%;
     left: 20px;
+    height: 60px;
 }
+
+#logo {
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
 
 #titulo {
     text-align: center;
@@ -63,7 +69,9 @@ main {
 }
 
 .btnFormulario {
+    margin: 4px;
     margin-top: 30px;
+    margin-bottom: 15px;
     border-radius: 8px;
     border: black 2px solid;
     background-color: rgb(131, 240, 145);
@@ -72,4 +80,8 @@ main {
 
 .btnFormulario:hover {
     transform: scale(1.08);
+}
+
+#linkLogin {
+    text-decoration: none;
 }

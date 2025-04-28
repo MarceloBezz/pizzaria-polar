@@ -14,7 +14,10 @@
 
 <body>
   <div id="cabecalho">
-    <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    <a href="http://localhost:8080/home" id="logo-link">
+      <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    </a>
+    
     <h2 id="titulo">Faça seu cadastro e venha se tornar cliente na melhor pizzaria da região!</h2>
   </div>
   <main>
@@ -23,53 +26,52 @@
     </div>
 
     <section id="formulario-cadastro">
-      <form action="" method="POST">
+      <form action="http://localhost:8080/api/usuario" method="POST" id="form-cadastro">
         <div id="parte-1" class="formulario">
 
           <label for="nome"></label>
-          <input type="text" id="nome" placeholder="Nome completo" minlength="3" maxlength="60" required>
+          <input type="text" id="nome" name="nome" placeholder="Nome completo" minlength="3" maxlength="60" oninput="semNumeros(this)" required>
 
           <label for="email"></label>
-          <input type="email" id="email" placeholder="Email" minlength="6" required>
+          <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
 
           <label for="senha"></label>
-          <input type="password" id="senha" placeholder="Senha" required>
+          <input type="password" id="senha" name="senha" placeholder="Senha" required>
 
-          <label for="pizzaFavorita"></label>
+          <!-- <label for="pizzaFavorita"></label>
           <input list="pizzas" id="pizzaFavorita" placeholder="Pizza favorita" required>
           <datalist id="pizzas">
             <option value="Calabresa">
             <option value="Mussarela">
             <option value="Frango com Catupiry">
             <option value="Portuguesa">
-          </datalist>
+          </datalist> -->
           <button type="button" onclick="proximo()" class="btnFormulario">Próximo</button>
-
+          <p>Já possui cadastro? <a href="" id="linkLogin">Clique aqui para entrar</a></p>
         </div>
 
         <div id="parte-2" style="display: none;" class="formulario">
           <label for="cep"></label>
-          <input type="text" id="cep" placeholder="CEP" onblur="buscaCEP()" required>
+          <input type="text" id="cep" name="cep" placeholder="CEP" onblur="buscaCEP()" oninput="somenteNumeros(this)" required>
 
           <label for="logradouro"></label>
-          <input type="text" id="logradouro" placeholder="Logradouro" required>
+          <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
 
           <label for="numero"></label>
-          <input type="text" id="numero" placeholder="Número" required>
+          <input type="text" id="numero" name="numero" placeholder="Número" oninput="somenteNumeros(this)" required>
 
           <label for="bairro"></label>
-          <input type="text" id="bairro" placeholder="Bairro" required>
+          <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
 
           <label for="cidade"></label>
-          <input type="text" id="cidade" placeholder="Cidade" required>
+          <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
 
           <label for="complemento"></label>
-          <input type="text" id="complemento" placeholder="Complemento">
+          <input type="text" id="complemento" name="complemento" placeholder="Complemento">
           <p>
             <button type="button" onclick="anterior()" class="btnFormulario">Anterior</button>
             <button type="submit" class="btnFormulario">Finalizar Cadastro</button>
           </p>
-
         </div>
       </form>
     </section>

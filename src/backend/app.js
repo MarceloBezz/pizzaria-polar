@@ -1,5 +1,6 @@
-import express from 'express';
-import routes from './routes/index.js';
+const express = require('express');
+const routes = require('./routes/index.js');
+require('dotenv/config');
 
 const app = express();
 const PORT = 8080;

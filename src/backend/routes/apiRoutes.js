@@ -1,7 +1,10 @@
-import { Router } from 'express';
-import fetch from 'node-fetch';
-import cors from 'cors';
+const express = require('express');
+const fetch = require('node-fetch');
+const cors = require('cors');
+const Router = express.Router;
 
+const UsuarioController = require('../controller/UsuarioController.js')
+const usuarioController = new UsuarioController();
 const router = Router();
 
 router.use(cors());
@@ -25,4 +28,7 @@ router.get('/api/cep/:cep', async (req, res) => {
 }
 );
 
-export default router;
+router.get('/api/usuario', (req, res) => usuarioController.pegaTodos(req, res))
+router.post('/api/usuario', (req, res) => usuarioController.cadastrar(req, res))
+
+module.exports = router;

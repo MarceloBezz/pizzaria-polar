@@ -1,12 +1,12 @@
-import express from 'express';
-import { fileURLToPath } from 'url';
-import path from 'path';
+const express = require('express');
+const { fileURLToPath } = require('url');
+const path = require('path');
 
-import userRoutes from './userRoutes.js';
-import frontendRoutes from './frontendRoutes.js';
-import apiRoutes from './apiRoutes.js';
+const userRoutes = require('./userRoutes.js');
+const frontendRoutes = require('./frontendRoutes.js');
+const apiRoutes = require('./apiRoutes.js');
 
-const __arquivoAtualURL = fileURLToPath(import.meta.url);
+const __arquivoAtualURL = __filename;
 const __diretorioAtual = path.dirname(__arquivoAtualURL);
 const frontendPath = path.join(__diretorioAtual, '..', '..', 'frontend');
 
@@ -15,4 +15,4 @@ const routes = (app) => {
     app.use(express.static(path.join(frontendPath, 'static')));
 }
 
-export default routes;
+module.exports = routes;
