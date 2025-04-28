@@ -1,4 +1,9 @@
 function proximo() {
+    if (!validarPrimeiroBloco()) {
+        alert("Preencha corretamente todos os campos antes de prosseguir!");
+        return;
+    }
+
     const parte1 = document.getElementById("parte-1");
     const parte2 = document.getElementById("parte-2");
 
@@ -37,6 +42,7 @@ function semNumeros(input) {
     input.value = input.value.replace(/[^a-zA-ZÁ-ÿ]/g, '');
 }
 
+//POST PARA API
 document.getElementById('form-cadastro').addEventListener('submit', async (event) => {
     event.preventDefault();
     const form = document.getElementById('form-cadastro')
@@ -47,7 +53,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (event
     formData.forEach((value, key) => {
         dados[key] = value;
     });
-    
+
     try {
         const response = await fetch('http://localhost:8080/api/usuario', {
             method: 'POST',
@@ -59,8 +65,67 @@ document.getElementById('form-cadastro').addEventListener('submit', async (event
         if (response.status == 200) {
             alert("Cliente cadastrado com sucesso!")
         }
-        
+
     } catch (error) {
         alert("Erro ao cadastrar!")
     }
-})
+});
+
+function validarSenha(input) {
+    const senha = input.value;
+
+    // Seleciona os parágrafos
+    const caracteres = document.getElementById('numero-de-caracteres');
+    const numeros = document.getElementById('numeros');
+    const maiusculas = document.getElementById('maiusculas');
+    const simbolos = document.getElementById('simbolos');
+
+    // Valida cada critério
+    if (senha.length >= 6 && senha.length <= 30) {
+        caracteres.classList.add('validado');
+        caracteres.classList.remove('invalido');
+    } else {
+        caracteres.classList.add('invalido');
+        caracteres.classList.remove('validado');
+    }
+
+    if (/\d/.test(senha)) {
+        numeros.classList.add('validado');
+        numeros.classList.remove('invalido');
+    } else {
+        numeros.classList.add('invalido');
+        numeros.classList.remove('validado');
+    }
+
+    if (/[A-Z]/.test(senha)) {
+        maiusculas.classList.add('validado');
+        maiusculas.classList.remove('invalido');
+    } else {
+        maiusculas.classList.add('invalido');
+        maiusculas.classList.remove('validado');
+    }
+
+    if (/[!@#$%^&*(),.?":{}|<>_]/.test(senha)) {
+        simbolos.classList.add('validado');
+        simbolos.classList.remove('invalido');
+    } else {
+        simbolos.classList.add('invalido');
+        simbolos.classList.remove('validado');
+    }
+}
+
+function validarPrimeiroBloco() {
+    const senha = document.getElementById('senha').value;
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+
+    const temCaracteres = senha.length >= 6 && senha.length <= 30;
+    const temNumero = /\d/.test(senha);
+    const temMaiuscula = /[A-Z]/.test(senha);
+    const temSimbolo = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+
+    const nomeCorreto = nome.length >= 3 && /(?!\d)/.test(nome)
+    const emailCorreto = email.length >= 13 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+
+    return temCaracteres && temNumero && temMaiuscula && temSimbolo && nomeCorreto && emailCorreto;
+}

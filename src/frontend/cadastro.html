@@ -15,7 +15,7 @@
 <body>
   <div id="cabecalho">
     <a href="http://localhost:8080/home" id="logo-link">
-      <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+      <img src="img/home.webp" alt="Voltar para tela inicial" id="logo">
     </a>
     
     <h2 id="titulo">Faça seu cadastro e venha se tornar cliente na melhor pizzaria da região!</h2>
@@ -36,7 +36,13 @@
           <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
 
           <label for="senha"></label>
-          <input type="password" id="senha" name="senha" placeholder="Senha" required>
+          <input type="password" id="senha" name="senha" placeholder="Senha" oninput="validarSenha(this)"  minlength="6" maxlength="30" required>
+          <div class="validacao">
+            <p id="numero-de-caracteres">A senha deve ter entre 6 e 30 caracteres</p>            
+            <p id="numeros">A senha deve conter pelo menos um número</p>            
+            <p id="maiusculas">A senha deve conter pelo menos uma letra maiúscula</p>            
+            <p id="simbolos">A senha deve conter pelo menos um símbolo</p>            
+          </div>
 
           <!-- <label for="pizzaFavorita"></label>
           <input list="pizzas" id="pizzaFavorita" placeholder="Pizza favorita" required>
@@ -58,7 +64,7 @@
           <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
 
           <label for="numero"></label>
-          <input type="text" id="numero" name="numero" placeholder="Número" oninput="somenteNumeros(this)" required>
+          <input type="text" id="numero" name="numero" oninput="somenteNumeros(this)" placeholder="Número" required>
 
           <label for="bairro"></label>
           <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>

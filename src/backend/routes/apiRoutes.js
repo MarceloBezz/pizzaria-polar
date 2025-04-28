@@ -29,6 +29,9 @@ router.get('/api/cep/:cep', async (req, res) => {
 );
 
 router.get('/api/usuario', (req, res) => usuarioController.pegaTodos(req, res))
+router.get('/api/usuario/:id', (req, res) => usuarioController.pegarPorId(req, res))
 router.post('/api/usuario', (req, res) => usuarioController.cadastrar(req, res))
+router.put('/api/usuario/:id', (req, res) => usuarioController.atualizar(req, res))
+router.delete('/api/usuario/:id', (req, res) => usuarioController.excluir(req, res))
 
 module.exports = router;

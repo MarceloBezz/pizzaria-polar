@@ -63,18 +63,13 @@ main {
     transition: border-color 0.3s;
 }
 
-
-.formulario input:focus {
-    /* border-bottom-color: #e60000; */
-}
-
 .btnFormulario {
     margin: 4px;
     margin-top: 30px;
     margin-bottom: 15px;
     border-radius: 8px;
     border: black 2px solid;
-    background-color: rgb(131, 240, 145);
+    background-color: rgb(233, 165, 30);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -85,3 +80,19 @@ main {
 #linkLogin {
     text-decoration: none;
 }
+
+.validacao p {
+    margin: 2px 0;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .validacao p.validado {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .validacao p.invalido {
+    color: red;
+    font-weight: bold;
+  }
