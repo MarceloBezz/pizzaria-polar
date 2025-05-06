@@ -1,4 +1,4 @@
-const UsuarioService = require('../service/UsuarioService.js')
+const UsuarioService = require('../service/usuarioService.js')
 const usuarioService = new UsuarioService();
 
 class UsuarioController {
@@ -18,6 +18,20 @@ class UsuarioController {
             return res.status(200).json(usuario);
         } catch (error) {
             return res.status(404).json("Erro!");
+        }
+    }
+
+    async existePorEmail(req, res) {
+        try {
+            const { email } = req.params;
+            const existePorEmail = await usuarioService.existePorEmail(email);
+            if (existePorEmail) {
+                return res.status(200).json(existePorEmail);
+            } else {
+                return res.status(404).json("Nenhum usuário encontrado!");
+            }
+        } catch (error) {
+            
         }
     }
 

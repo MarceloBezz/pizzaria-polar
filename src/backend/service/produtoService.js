@@ -1,8 +1,8 @@
 const Service = require('./service.js');
 
-class UsuarioService extends Service {
+class ProdutoService extends Service {
     constructor() {
-        super('Usuario');
+        super('Produto');
     }
 
     async pegaTodos() {
@@ -31,4 +31,4 @@ class UsuarioService extends Service {
 
 }
 
-module.exports = UsuarioService;
+module.exports = ProdutoService;

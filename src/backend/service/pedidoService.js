@@ -1,8 +1,8 @@
 const Service = require('./service.js');
 
-class UsuarioService extends Service {
+class PedidoService extends Service {
     constructor() {
-        super('Usuario');
+        super('Pedido');
     }
 
     async pegaTodos() {
@@ -12,11 +12,7 @@ class UsuarioService extends Service {
     async pegarPorId(id) {
         return super.pegarPorId(id);
     }
-
-    async existePorEmail(email) {
-        return super.existePorEmail(email);
-    }
-
+    
     async cadastrar(dados) {
         return super.cadastrar(dados);
     }
@@ -31,4 +27,4 @@ class UsuarioService extends Service {
 
 }
 
-module.exports = UsuarioService;
+module.exports = PedidoService;
