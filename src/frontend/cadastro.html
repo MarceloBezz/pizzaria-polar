@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Pizzaria Polar</title>
+  <link rel="stylesheet" href="style/cadastro.css">
+  <link rel="stylesheet" href="style/stylesGerais.css">
+  <link rel="icon" href="img/logo pizzaria.jpg" type="image/jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div id="cabecalho">
+    <a href="http://localhost:8080/home" id="logo-link">
+      <img src="img/home.webp" alt="Voltar para tela inicial" id="logo">
+    </a>
+    
+    <h2 id="titulo">Faça seu cadastro e venha se tornar cliente na melhor pizzaria da região!</h2>
+  </div>
+  <main>
+    <div id="imagem-form">
+      <img src="img/logo pizzaria.jpg" alt="Imagem de cadastro" id="imagem-cadastro">
+    </div>
+
+    <section id="formulario-cadastro">
+      <form action="http://localhost:8080/api/usuario" method="POST" id="form-cadastro">
+        <div id="parte-1" class="formulario">
+
+          <label for="nome"></label>
+          <input type="text" id="nome" name="nome" placeholder="Nome completo" minlength="3" maxlength="60" oninput="semNumeros(this)" required>
+
+          <label for="email"></label>
+          <input type="email" id="email" name="email" onblur="emailJaExistente(this)" placeholder="Email" minlength="6" required>
+          <div class="validacao">
+            <p id="email-validacao"></p>
+          </div>
+
+          <label for="senha"></label>
+          <input type="password" id="senha" name="senha" placeholder="Senha" oninput="validarSenha(this)"  minlength="6" maxlength="30" required>
+          <div class="validacao">
+            <p id="numero-de-caracteres">A senha deve ter entre 6 e 30 caracteres</p>            
+            <p id="numeros">A senha deve conter pelo menos um número</p>            
+            <p id="maiusculas">A senha deve conter pelo menos uma letra maiúscula</p>            
+            <p id="simbolos">A senha deve conter pelo menos um símbolo</p>            
+          </div>
+
+          <!-- <label for="pizzaFavorita"></label>
+          <input list="pizzas" id="pizzaFavorita" placeholder="Pizza favorita" required>
+          <datalist id="pizzas">
+            <option value="Calabresa">
+            <option value="Mussarela">
+            <option value="Frango com Catupiry">
+            <option value="Portuguesa">
+          </datalist> -->
+          <button type="button" onclick="proximo()" class="btnFormulario">Próximo</button>
+          <p>Já possui cadastro? <a href="http://localhost:8080/login" id="linkLogin">Clique aqui para entrar</a></p>
+        </div>
+
+        <div id="parte-2" style="display: none;" class="formulario">
+          <label for="cep"></label>
+          <input type="text" id="cep" name="cep" placeholder="CEP" onblur="buscaCEP()" oninput="somenteNumeros(this)" required>
+
+          <label for="logradouro"></label>
+          <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
+
+          <label for="numero"></label>
+          <input type="text" id="numero" name="numero" oninput="somenteNumeros(this)" placeholder="Número" required>
+
+          <label for="bairro"></label>
+          <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+
+          <label for="cidade"></label>
+          <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+
+          <label for="complemento"></label>
+          <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+          <p>
+            <button type="button" onclick="anterior()" class="btnFormulario">Anterior</button>
+            <button type="submit" class="btnFormulario">Finalizar Cadastro</button>
+          </p>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="img/logo pizzaria.jpg" alt="Logo Pizzaria Polar">
+        <h4>Pizzaria Polar</h4>
+      </div>
+
+      <div class="footer-info">
+        <p><strong>Endereço:</strong> Rua das Pizzas, 123 - São Paulo, SP</p>
+        <p><strong>Telefone:</strong> (11)4002-8922</p>
+        <p><strong>Email:</strong> contato@pizzariapolar.com</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pizzaria Polar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script/cadastro.js"></script>
+</body>
+
+</html>

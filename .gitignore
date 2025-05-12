@@ -2,4 +2,8 @@ node_modules/
 .env
 .vscode/
 
+<<<<<<< HEAD
 src
+=======
+src/backend/database/config/config.json
+>>>>>>> 457800cc4e11341bd56cdc38c2660bec6a1606b6

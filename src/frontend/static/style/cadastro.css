@@ -1,0 +1,98 @@
+/* CABEÇALHO */
+#cabecalho {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#logo-link {
+    position: absolute;
+    left: 20px;
+    height: 60px;
+}
+
+#logo {
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+
+#titulo {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
+    align-items: center;
+    /* background-color: gray; */
+    margin: 0 auto;
+}
+
+#imagem-cadastro {
+    width: 300px;
+    height: 300px;
+}
+
+/* FORMULÁRIO DE CADASTRO */
+#formulario-cadastro {
+    margin-left: 290px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.formulario input {
+    border: none;
+    border-bottom: 2px solid #000;
+    background: transparent;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.btnFormulario {
+    margin: 4px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: black 2px solid;
+    background-color: rgb(233, 165, 30);
+    transition: transform 0.3s ease-in-out;
+}
+
+.btnFormulario:hover {
+    transform: scale(1.08);
+}
+
+#linkLogin {
+    text-decoration: none;
+}
+
+.validacao p {
+    margin: 2px 0;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .validacao p.validado {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .validacao p.invalido {
+    color: red;
+    font-weight: bold;
+  }
