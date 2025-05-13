@@ -129,3 +129,31 @@ function validarPrimeiroBloco() {
 
     return temCaracteres && temNumero && temMaiuscula && temSimbolo && nomeCorreto && emailCorreto;
 }
+
+async function emailJaExistente(input) {
+    const email = input.value;
+    const resposta = document.getElementById('email-validacao');
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/usuario/email/${email}`, {
+            method: 'GET',
+        });
+        if (response.status == 200) {
+            resposta.classList.add('invalido')
+            resposta.classList.remove('validado')
+            resposta.textContent = "Email já cadastrado!" 
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            resposta.classList.add('invalido')
+            resposta.classList.remove('validado')
+            resposta.textContent = "Email inválido!"
+        }
+         else {
+            resposta.classList.add('validado')
+            resposta.classList.remove('invalido')
+            resposta.textContent = "Email válido!" 
+        }
+
+    } catch (error) {
+        alert("Erro ao buscar!")
+    }
+}
