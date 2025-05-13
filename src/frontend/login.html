@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel = "stylesheet" href ="style/login.css">
-    <link rel = "icon" href = "img/logo pizzaria.jpg" type = "image/jpg">
+    <link rel = "stylesheet" href ="static/style/login.css">
+    <link rel = "icon" href = "static/img/logo pizzaria.jpg" type = "image/jpg">
 </head>
 <body>
     <header>
-        <img scr = "img/logo pizzaria.jpg" alt = "logo da pizzaria polar" id = "logo">
+        <img href = "static/img/logo pizzaria.jpg" alt = "logo da pizzaria polar" id = "logo">
     </header>
 
     <main>
-        <H1 id = "titulo">Bom te ver novamente!<br>Digite seus dados para entrar</H1>
-
-        <label for="email"></label>
-        <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
-        <input type = "password" id = "password" placeholder="Senha" minlength="6" required>
-
-        <button type="button" id="acesso">Acessar</button>
-
-        <p id = "entrar">Não possui cadastro? Cadastre-se agora</p>
+        <div id = "entrada">
+            <H1 id = "titulo"><br>Bom te ver novamente!<br>Digite seus dados para entrar</H1>
+        </div>
+        <div id = "cadas">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
+            <input type = "password" id = "password" placeholder="Senha" minlength="6" required>
+            <div id = "guadbotao">
+                 <button type="button" id="acesso">Acessar</button>
+            </div>
+            <div id = "semcad">
+                 <p id = "entrar">Não possui cadastro?  <a href="http://localhost:8080/cadastro">Cadastre-se agora</a></p>
+            </div>
+        </div>
     </main>
 </body>
 </html>
