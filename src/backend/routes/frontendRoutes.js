@@ -13,5 +13,6 @@ router.get('/home', (req, res) => res.sendFile(path.join(frontendPath, 'home.htm
 router.get('/contato', (req, res) => res.sendFile(path.join(frontendPath, 'contato.html')));
 router.get('/cadastro', (req, res) => res.sendFile(path.join(frontendPath, 'cadastro.html')));
 router.get('/login', (req, res) => res.sendFile(path.join(frontendPath, 'login.html')));
+router.get('/cardapio', (req, res) => res.sendFile(path.join(frontendPath, 'cardapio.html')));
 
 module.exports = router;

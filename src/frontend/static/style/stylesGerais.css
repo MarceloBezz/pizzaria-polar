@@ -1,6 +1,7 @@
 /* HEADER */
 header {
     position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     background-color: #b30000;

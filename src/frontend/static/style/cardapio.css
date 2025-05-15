@@ -1,0 +1,19 @@
+.title-cardapio {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 100px;
+    color: #b30d0d;
+    border-bottom: solid #b30d0d;
+    text-shadow: 2px 2px black;
+    font-size: 4em;
+    text-transform: uppercase;
+    background-color: #ddd9d9;
+}
+
+.cardapio-pizzas {
+    display: flex;
+    padding-left: 40px;
+    flex-direction: column;
+    gap: 30px;
+}
