@@ -8,24 +8,39 @@
 
 /* Conteúdo principal */
 main {
-     background-color:rgb(217, 217, 217); 
-    height: 789px;
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
     align-items: center;
+    /* background-color: gray; */
+    margin: 0 auto;
+}
+
+#principal{
+    margin-top: 80px;
+    margin-left: 290px;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-right: 50px;
+}
+
+#imagem-cadastro {
+    width: 350px;
+    height: 350px;
+    margin-left: 50px;
 }
 
 #titulo {
     text-align: center;
     font-size: 2.2em;
     margin: 20px 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #email{
-    margin-top: 60px;
+    margin-top: 10px;
     border: none;
     border-bottom: 2px solid #000;
     background: transparent;
@@ -66,10 +81,11 @@ main {
     background: #fff;
   color: #339DFF;
   box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
+  animation-delay: 20ms;
 }
 
 #guadbotao{
-    margin-top: 50px;
+    margin-top: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,20 +95,16 @@ main {
     margin-top: 150px;
 }
 
-#principal{
-    margin-top: 100px;
-    margin-left: 290px;
-    gap: 20px;
-    width: 100%;
-    max-width: 600px;
 
-}
+
 
 #semcad{
     display: flex;
     margin-top: 50px;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
+
 
 }
 
