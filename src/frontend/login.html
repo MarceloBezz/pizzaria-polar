@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/stylesGerais.css">
+    <link rel="icon" href="img/logo pizzaria.jpg" type="image/jpg">
+</head>
+
+<body>
+    <header>
+        <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+        <h1>Pizzaria Polar</h1>
+        <nav id="menu">
+            <ul>
+                <li><a href="http://localhost:8080/home">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="http://localhost:8080/contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="entrada">
+        <H1 id="titulo"><br>Bom te ver novamente!<br>Digite seus dados para entrar</H1>
+    </div>
+
+    <main>
+        <div id="imagem-form">
+            <img src="img/ursocomendopizza.png" alt="Imagem de cadastro" id="imagem-cadastro">
+        </div>
+
+        <div id="principal">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
+            <input type="password" id="password" placeholder="Senha" minlength="6" required>
+            <div id="guadbotao">
+                <button type="button" id="acesso">Acessar</button>
+            </div>
+            <div id="semcad">
+                <p id="entrar">Não possui cadastro? <a href="http://localhost:8080/cadastro">Cadastre-se agora</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo pizzaria.jpg" alt="Logo Pizzaria Polar">
+                <h4>Pizzaria Polar</h4>
+            </div>
+
+            <div class="footer-info">
+                <p><strong>Endereço:</strong> Rua das Pizzas, 123 - São Paulo, SP</p>
+                <p><strong>Telefone:</strong> (11)4002-8922</p>
+                <p><strong>Email:</strong> contato@pizzariapolar.com</p>
+            </div>
+
+            <div class="footer-social">
+                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pizzaria Polar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
