@@ -8,6 +8,8 @@ class AuthController {
         try {
             const login = await authService.login({ email, senha });
 
+            req.session.user = { email }
+            console.log(req.session.user)
             res.status(200).send(login);
         } catch (error) {
             res.status(401).send({ erro: error.message})
