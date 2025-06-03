@@ -6,16 +6,18 @@ require('dotenv/config');
 const app = express();
 const PORT = 8080;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(session({
-    secret: 'meuSegredoSuperSecreto', // 🔑 String secreta para assinar o ID da sessão (NUNCA exponha isso no código público)
-    resave: false, // Não salva a sessão se não tiver sido modificada
-    saveUninitialized: false, // Não cria sessão até que algo seja salvo nela
+    secret: process.env.SEGREDO_SECURITY, 
+    resave: false, 
+    saveUninitialized: false, 
     cookie: {
-        secure: false, // 🔒 true se usar HTTPS
-        httpOnly: true, // O cookie não pode ser acessado pelo JavaScript do frontend (mais seguro)
-        maxAge: 1000 * 60 * 60 * 1 // 1 hora
+        secure: false, 
+        httpOnly: true, 
+        maxAge: 1000 * 60 * 60 * 1 
     }
 }));
+
 routes(app);
 
 app.listen(PORT, () => {

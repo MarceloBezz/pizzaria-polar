@@ -2,4 +2,4 @@ node_modules/
 .env
 .vscode/
 
-src/backend/database/config/config.json
+src/backend/database/config
