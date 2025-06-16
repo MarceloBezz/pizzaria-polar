@@ -10,7 +10,7 @@ class Service {
     }
 
     async pegarPorId(id) {
-        return datasource[this.model].findAll({where: { id: id }});
+        return datasource[this.model].findOne({where: { id: id }});
     }
 
     async existePorEmail(email) {

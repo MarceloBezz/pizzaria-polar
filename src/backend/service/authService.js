@@ -23,14 +23,14 @@ class AuthService {
             throw new Error("Senha incorreta!")
         }
 
-        const acessToken = sign({
+        const accessToken = sign({
             id: usuario.id,
             email: usuario.email
         }, jsonSecret.secret, {
             expiresIn: 86400
         });
         
-        return { acessToken } 
+        return { accessToken } 
     }
 }
 
