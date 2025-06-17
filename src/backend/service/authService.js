@@ -1,4 +1,3 @@
-const { where } = require('sequelize')
 const database = require('../database/models');
 const { compare } = require('bcrypt');
 const { sign } = require('jsonwebtoken');
