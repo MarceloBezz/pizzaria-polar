@@ -45,7 +45,7 @@ function somenteNumeros(input) {
 }
 
 function semNumeros(input) {
-    input.value = input.value.replace(/[^a-zA-ZÁ-ÿ]/g, '');
+    input.value = input.value.replace(/[^a-zA-ZÁ-ÿ ]/g, '');
 }
 
 //POST PARA API

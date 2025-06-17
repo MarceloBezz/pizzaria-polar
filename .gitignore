@@ -3,3 +3,5 @@ node_modules/
 .vscode/
 
 src/backend/database/config
+src/backend/database/fotos/*
+!src/backend/database/fotos/perfil.png

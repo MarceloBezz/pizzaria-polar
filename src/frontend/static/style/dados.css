@@ -13,6 +13,22 @@ body {
     padding-top: 100px; /* espaço pro header fixo */
 }
 
+#form-foto {
+  height: 100%;
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+}
+
+.foto {
+  width: 200px; /* ajuste se quiser */
+  height: 200px;
+  border-radius: 50%; /* para deixar circular */
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Header fixo no topo */
 header {
     position: fixed;
