@@ -20,7 +20,7 @@ form.addEventListener('submit', async (e) => {
     const result = await response.json();
     if (result.accessToken) {
         alert(`Login bem sucedido! Bem vindo!`)
-        window.location.href = "http://localhost:8080/home"
+        window.location.href = "http://localhost:8080/dados"
     } else {
         alert("Usuário e/ou senha incorreto(s)!")
     }

@@ -1,4 +1,4 @@
-const { verify, decode } = require('jsonwebtoken');
+const { verify } = require('jsonwebtoken');
 const jsonSecret = require('../database/config/jsonSecret.js');
 
 const UsuarioService = require('../service/usuarioService.js');

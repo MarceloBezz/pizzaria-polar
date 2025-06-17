@@ -12,20 +12,20 @@
 </head>
 
 <body>
-    <header>
-        <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
-        <h1>Pizzaria Polar</h1>
-        <nav id="menu">
-          <ul>
-            <li><a href="http://localhost:8080/home">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-           <li><a href="cardapio.html">Cardápio</a></li>
-           <li><a href="http://localhost:8080/contato">Contato</a></li>
-           <li><a href="">Login</a></li>
-           <li><a href="http://localhost:8080/cadastro">Cadastro</a></li>
-          </ul>
-        </nav>
-      </header>
+  <header>
+    <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    <h1>Pizzaria Polar</h1>
+    <nav id="menu">
+      <ul>
+        <li><a href="http://localhost:8080/home">Home</a></li>
+        <li><a href="http://localhost:8080/sobre">Sobre</a></li>
+        <li><a href="http://localhost:8080/cardapio">Cardápio</a></li>
+        <li><a href="http://localhost:8080/contato">Contato</a></li>
+        <li><a href="http://localhost:8080/dados" id="usuario"></a></li>
+        <li><a href="" id="logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <h2 class="titulo">MEUS DADOS: </h2>
 
@@ -39,28 +39,28 @@
           <div class="grupo">
             <div class="botao">
               <label>Nome:</label>
-              <input type='text' />
+              <input type='text' id="nome"/>
             </div>
 
             <div class="botao">
               <label>E-mail:</label>
-              <input type="email" placeholder="Clliente@gmail.com" readonly/>
+              <input type="email" id="email" readonly/>
             </div>
             <div class="botao">
               <label>Telefone:</label>
-              <input type='tel' />
+              <input type='tel' id="telefone"/>
             </div>
           </div>
 
           <div class="grupo">
             <div class="botao">
               <label>CEP:</label>
-              <input type='number' />
+              <input type='number' id="cep"/>
             </div>
 
             <div class="botao">
               <label>Numero:</label>
-              <input type='number' />
+              <input type='number' id="numero"/>
             </div>
           </div>
           
@@ -100,5 +100,6 @@
           <p>&copy; 2025 Pizzaria Polar. Todos os direitos reservados.</p>
         </div>
       </footer>
+      <script src="script/dados.js"></script>
 </body>
 </html>

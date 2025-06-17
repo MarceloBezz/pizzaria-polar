@@ -1,5 +1,4 @@
 const express = require('express');
-const { fileURLToPath } = require('url');
 const path = require('path');
 
 const __arquivoAtualURL = __filename; // Caminho do arquivo atual como URL
