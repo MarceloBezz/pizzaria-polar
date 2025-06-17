@@ -3,6 +3,8 @@ const UsuarioService = require('../service/usuarioService.js')
 const usuarioService = new UsuarioService();
 const { verify } = require('jsonwebtoken');
 const jsonSecret = require('../database/config/jsonSecret.js');
+const AuthService = require('../service/authService.js')
+const authService = new AuthService();
 
 class UsuarioController {
     async pegaTodos(req, res) {
@@ -17,6 +19,7 @@ class UsuarioController {
     async pegarPorId(req, res) {
         let id = null;
         if (req.session?.user?.token) {
+            console.log(req.session.user)
             const token = req.session.user.token
             const decoded = verify(token, jsonSecret.secret);
             id = decoded.id;
@@ -49,11 +52,13 @@ class UsuarioController {
     async cadastrar(req, res) {
         try {
             req.body.role = "CLIENTE"
-
             req.body.senha = await this.criptografarSenha(req.body.senha)
-            console.log(req.body);
 
             const novoUsuario = await usuarioService.cadastrar(req.body)
+
+            const token = authService.criarAccessToken(novoUsuario.id, novoUsuario.email)
+            req.session.user = { token: token }
+
             return res.status(200).json(novoUsuario)
         } catch (error) {
             return res.status(404).json(error)
@@ -96,15 +101,6 @@ class UsuarioController {
         const hashSenha = await hash(senhaDigitada, 8);
         return hashSenha;
     }
-
-    // async pegarUsuarioFrontend(id) {
-    //     try {
-    //         const usuario = await usuarioService.pegarPorId(id);
-    //         return res.status(200).json(usuario);
-    //     } catch (error) {
-    //         return res.status(404).json(error.message)
-    //     }
-    // }
 }
 
 module.exports = UsuarioController;

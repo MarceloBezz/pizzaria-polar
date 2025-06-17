@@ -15,20 +15,22 @@
 </head>
 
 <body>
-    <header>
-        <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
-        <h1>Pizzaria Polar</h1>
-        <nav id="menu">
-            <ul>
-                <li><a href="http://localhost:8080/home">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="http://localhost:8080/cardapio">Cardápio</a></li>
-                <li><a href="http://localhost:8080/contato">Contato</a></li>
-                <li><a href="http://localhost:8080/login">Login</a></li>
-                <li><a href="http://localhost:8080/cadastro">Cadastro</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    <h1>Pizzaria Polar</h1>
+    <nav id="menu">
+      <ul>
+        <li><a href="http://localhost:8080/home">Home</a></li>
+        <li><a href="http://localhost:8080/sobre">Sobre</a></li>
+        <li><a href="http://localhost:8080/cardapio">Cardápio</a></li>
+        <li><a href="http://localhost:8080/contato">Contato</a></li>
+        <li id="login"><a href="http://localhost:8080/login">Login</a></li>
+        <li id="cadastro"><a href="http://localhost:8080/cadastro">Cadastro</a></li>
+        <li><a href="" id="usuario"></a></li>
+        <li><a href="" id="logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
     <h1 class="title-cardapio">Cardápio</h1>
 
     <div class="cardapio-pizzas">
@@ -40,6 +42,7 @@
             <img src="img/pizza_mussarela.png" alt="Pizza de Mussarela">
         </figure>
     </div>
+    <script src="script/header.js"></script>
 </body>
 
 </html>
