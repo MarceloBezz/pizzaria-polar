@@ -2,18 +2,50 @@
     text-align: center;
     padding-top: 130px;
     padding-bottom: 40px;
-    margin-bottom: 100px;
-    color: #b30d0d;
-    border-bottom: solid #b30d0d;
+    margin-bottom: 60px;
+    color: white;
+    border-bottom:  1px solid #111010;
     text-shadow: 2px 2px black;
     font-size: 4em;
     text-transform: uppercase;
-    background-color: #ddd9d9;
+    background-color: #b30d0d;
 }
 
-.cardapio-pizzas {
+.pizza-item {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    max-width: 95%;
+    border: solid 2px #ddd9d9;
+}
+
+.img-pizzas {
+    width: auto;
+    height: 180px;
+    display: block;
+}
+
+.text-cardapio {
+    background-color: #b30000;
+    color: white;
+    padding: 20px;
     display: flex;
     padding-left: 40px;
     flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    
 }
+
+.cardapio-pizzas {
+    padding-left: 80px;
+    height: auto;
+}
+
+h3 {
+    text-shadow: 2px 2px black;
+
+}
+
+
