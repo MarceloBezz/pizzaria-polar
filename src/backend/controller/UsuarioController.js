@@ -1,6 +1,11 @@
 const { hash } = require('bcrypt');
+const { verify } = require('jsonwebtoken');
+const jsonSecret = require('../database/config/jsonSecret.js');
 const UsuarioService = require('../service/usuarioService.js')
 const usuarioService = new UsuarioService();
+const AuthService = require('../service/authService.js')
+const authService = new AuthService();
+const dadosToken = require('../middlewares/pegarDadosToken.js')
 
 class UsuarioController {
     async pegaTodos(req, res) {
@@ -13,8 +18,17 @@ class UsuarioController {
     }
 
     async pegarPorId(req, res) {
+        let id = null;
+        if (req.session?.user?.token) {
+            // const token = req.session.user.token
+            // const decoded = verify(token, jsonSecret.secret);
+            // id = decoded.id;
+            id = dadosToken(req.session.user.token).id
+        } else {
+            id = req.params.id;
+        }
+
         try {
-            const { id } = req.params;
             const usuario = await usuarioService.pegarPorId(id);
             return res.status(200).json(usuario);
         } catch (error) {
@@ -32,18 +46,21 @@ class UsuarioController {
                 return res.status(404).json("Nenhum usuário encontrado!");
             }
         } catch (error) {
-            
+
         }
     }
 
     async cadastrar(req, res) {
         try {
             req.body.role = "CLIENTE"
-            
             req.body.senha = await this.criptografarSenha(req.body.senha)
-            console.log(req.body);
-            
+            req.body.foto = "perfil.png"
+
             const novoUsuario = await usuarioService.cadastrar(req.body)
+
+            const token = authService.criarAccessToken(novoUsuario.id, novoUsuario.email)
+            req.session.user = { token: token }
+
             return res.status(200).json(novoUsuario)
         } catch (error) {
             return res.status(404).json(error)
@@ -58,7 +75,7 @@ class UsuarioController {
             if (!usuario) {
                 return res.status(404).json("Usuário não encontrado!");
             }
-            
+
             const usuarioAtualizado = await usuarioService.atualizar(req.body, id)
             return res.status(200).json(usuarioAtualizado)
         } catch (error) {
@@ -85,6 +102,13 @@ class UsuarioController {
     async criptografarSenha(senhaDigitada) {
         const hashSenha = await hash(senhaDigitada, 8);
         return hashSenha;
+    }
+
+    async novaFoto(req, res) {
+        const { id } = dadosToken(req.session.user.token)
+        await usuarioService.atualizar({ foto: req.file.filename }, id)  
+
+        res.status(200).send("OK")
     }
 }
 

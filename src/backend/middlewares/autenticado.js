@@ -11,12 +11,13 @@ module.exports = async (req, res, next) => {
     const [, accessToken] = token.split(" ")
 
     try {
-        verify(accessToken, jsonSecret.secret)
+        // verify(accessToken, jsonSecret.secret)
 
-        const { id, email } = await decode(accessToken)
+        // const { id, email } = await decode(accessToken)
+        const decoded = verify(accessToken, jsonSecret.secret)
 
-        req.usuarioId = id
-        req.email = email
+        // req.usuarioId = id
+        // req.email = email
 
         return next()
     } catch (error) {

@@ -5,24 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="style/login.css">
     <link rel="stylesheet" href="style/stylesGerais.css">
+    <link rel="stylesheet" href="style/login.css">
     <link rel="icon" href="img/logo pizzaria.jpg" type="image/jpg">
 </head>
 
 <body>
-    <header>
-        <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
-        <h1>Pizzaria Polar</h1>
-        <nav id="menu">
-            <ul>
-                <li><a href="http://localhost:8080/home">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="http://localhost:8080/contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <img src="img/logo pizzaria.jpg" alt="Logo da Pizzaria Polar" id="logo">
+    <h1>Pizzaria Polar</h1>
+    <nav id="menu">
+      <ul>
+        <li><a href="http://localhost:8080/home">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="http://localhost:8080/cardapio">Cardápio</a></li>
+        <li><a href="http://localhost:8080/contato">Contato</a></li>
+        <li id="login"><a href="http://localhost:8080/login">Login</a></li>
+        <li id="cadastro"><a href="http://localhost:8080/cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
     <div id="entrada">
         <H1 id="titulo"><br>Bom te ver novamente!<br>Digite seus dados para entrar</H1>
     </div>
@@ -33,12 +35,14 @@
         </div>
 
         <div id="principal">
-            <label for="email"></label>
-            <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
-            <input type="password" id="password" placeholder="Senha" minlength="6" required>
-            <div id="guadbotao">
-                <button type="button" id="acesso">Acessar</button>
-            </div>
+            <form action="http://localhost:8080/auth/login" method="post" id="formLogin">
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="Email" minlength="6" required>
+                <input type="password" name="senha" id="password" placeholder="Senha" required>
+                <div id="guadbotao">
+                    <button type="submit" id="acesso">Acessar</button>
+                </div>
+            </form>
             <div id="semcad">
                 <p id="entrar">Não possui cadastro? <a href="http://localhost:8080/cadastro">Cadastre-se agora</a></p>
             </div>
@@ -69,6 +73,6 @@
             <p>&copy; 2025 Pizzaria Polar. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script src="script/login.js"></script>
 </body>
-
 </html>
