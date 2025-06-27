@@ -1,34 +1,9 @@
-const Service = require('./service.js');
+const Service = require('./Service.js');
 
 class ProdutoService extends Service {
     constructor() {
         super('Produto');
     }
-
-    async pegaTodos() {
-        return super.pegaTodos();
-    }
-
-    async pegarPorId(id) {
-        return super.pegarPorId(id);
-    }
-
-    async existePorEmail(email) {
-        return super.existePorEmail(email);
-    }
-
-    async cadastrar(dados) {
-        return super.cadastrar(dados);
-    }
-
-    async atualizar(dados, id) {
-        return super.atualizar(dados, id);
-    }
-
-    async excluir(id) {
-        return super.excluir(id);
-    }
-
 }
 
 module.exports = ProdutoService;

@@ -39,7 +39,7 @@ main {
 
 #imagem-cadastro {
     width: 300px;
-    height: 300px;
+    height: auto;
 }
 
 /* FORMULÁRIO DE CADASTRO */

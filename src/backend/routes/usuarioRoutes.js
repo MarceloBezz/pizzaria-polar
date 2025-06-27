@@ -10,6 +10,7 @@ const router = Router();
 router.use(cors());
 // router.use(autenticado)
 
+router.get('/api/usuario/frontend', (req, res) => usuarioController.pegaTodos(req, res))
 router.get('/api/usuario', (req, res) => usuarioController.pegaTodos(req, res))
 router.get('/api/usuario/:id', (req, res) => usuarioController.pegarPorId(req, res))
 router.get('/api/usuario/email/:email', (req, res) => usuarioController.existePorEmail(req, res))

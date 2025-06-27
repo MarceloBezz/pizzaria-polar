@@ -5,7 +5,9 @@
     box-sizing: border-box;
 }
 
-
+header {
+    position: absolute;
+}
 /* Conteúdo principal */
 main {
     display: flex;
@@ -26,6 +28,13 @@ main {
     margin-right: 50px;
 }
 
+#imagem-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 #imagem-cadastro {
     width: 350px;
     height: 350px;
@@ -35,7 +44,7 @@ main {
 #titulo {
     text-align: center;
     font-size: 2.2em;
-    margin: 20px 0;
+    margin-top: 10px 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -92,7 +101,7 @@ main {
 }
 
 #entrada{
-    margin-top: 150px;
+    margin-top: 90px;
 }
 
 

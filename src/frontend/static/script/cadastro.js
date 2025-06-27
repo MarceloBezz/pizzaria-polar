@@ -24,10 +24,16 @@ async function buscaCEP() {
 
     const response = await fetch(`http://localhost:8080/api/cep/${cep}`);
     const data = await response.json();
-
+    
+    const cepValidacao = document.getElementById('cep-validacao')
     if (data.error || data.erro) {
+        cepValidacao.textContent = "CEP inexistente!"
+        cepValidacao.classList.add('invalido')
         return;
     }
+
+    cepValidacao.textContent = ""
+    cepValidacao.classList.remove('invalido')
 
     document.getElementById("logradouro").value = data.logradouro;
     document.getElementById("bairro").value = data.bairro;
@@ -45,6 +51,11 @@ function semNumeros(input) {
 //POST PARA API
 document.getElementById('form-cadastro').addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (document.getElementById('cep-validacao').classList.contains('invalido')) {
+        alert("Preencha os dados corretamente!")
+        return
+    }
+
     const form = document.getElementById('form-cadastro')
 
     const formData = new FormData(form);
@@ -64,6 +75,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (event
         });
         if (response.status == 200) {
             alert("Cliente cadastrado com sucesso!")
+            window.location.href = "http://localhost:8080/dados"
         }
 
     } catch (error) {
@@ -118,6 +130,7 @@ function validarPrimeiroBloco() {
     const senha = document.getElementById('senha').value;
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
+    const emailValidacao = document.getElementById('email-validacao')
 
     const temCaracteres = senha.length >= 6 && senha.length <= 30;
     const temNumero = /\d/.test(senha);
@@ -126,8 +139,9 @@ function validarPrimeiroBloco() {
 
     const nomeCorreto = nome.length >= 3 && /(?!\d)/.test(nome)
     const emailCorreto = email.length >= 13 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    const emailNaoCadastrado = emailValidacao.classList.contains('validado')
 
-    return temCaracteres && temNumero && temMaiuscula && temSimbolo && nomeCorreto && emailCorreto;
+    return temCaracteres && temNumero && temMaiuscula && temSimbolo && nomeCorreto && emailCorreto && emailNaoCadastrado;
 }
 
 async function emailJaExistente(input) {
@@ -141,16 +155,16 @@ async function emailJaExistente(input) {
         if (response.status == 200) {
             resposta.classList.add('invalido')
             resposta.classList.remove('validado')
-            resposta.textContent = "Email já cadastrado!" 
+            resposta.textContent = "Email já cadastrado!"
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             resposta.classList.add('invalido')
             resposta.classList.remove('validado')
             resposta.textContent = "Email inválido!"
         }
-         else {
+        else {
             resposta.classList.add('validado')
             resposta.classList.remove('invalido')
-            resposta.textContent = "Email válido!" 
+            resposta.textContent = "Email válido!"
         }
 
     } catch (error) {

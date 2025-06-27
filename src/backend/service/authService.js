@@ -1,4 +1,3 @@
-const { where } = require('sequelize')
 const database = require('../database/models');
 const { compare } = require('bcrypt');
 const { sign } = require('jsonwebtoken');
@@ -23,14 +22,18 @@ class AuthService {
             throw new Error("Senha incorreta!")
         }
 
-        const accessToken = sign({
-            id: usuario.id,
-            email: usuario.email
+        const accessToken = this.criarAccessToken(usuario.id, usuario.email)
+        
+        return { accessToken } 
+    }
+
+    criarAccessToken(id, email) {
+        return sign({
+            id: id,
+            email: email
         }, jsonSecret.secret, {
             expiresIn: 86400
         });
-        
-        return { accessToken } 
     }
 }
 
