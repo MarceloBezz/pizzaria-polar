@@ -16,5 +16,6 @@ router.get('/cadastro', naoLogado, (req, res) => res.sendFile(path.join(frontend
 router.get('/login', naoLogado, (req, res) => res.sendFile(path.join(frontendPath, 'login.html')));
 router.get('/dados', logado,  (req, res) => res.sendFile(path.join(frontendPath, 'dados.html')));
 router.get('/cardapio', (req, res) => res.sendFile(path.join(frontendPath, 'cardapio.html')));
+router.get('/sobre', (req, res) => res.sendFile(path.join(frontendPath, 'sobre.html')));
 
 module.exports = router;
