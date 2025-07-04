@@ -15,9 +15,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências
-        run: npm install
-
       - name: Login no Azure
         uses: azure/login@v1
         with:
