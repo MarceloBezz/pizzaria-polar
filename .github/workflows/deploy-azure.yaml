@@ -1,33 +1,34 @@
-name: Deploy Node.js para Azure App Service
+name: Deploy para Azure
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
+      - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # ajuste para sua versão do Node
+          node-version: '20'
 
       - name: Instalar dependências
         run: npm install
 
-      #- name: Build da aplicação (se necessário)
-       # run: npm run build  # remova se não usar build
+      - name: Login no Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy para Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'PizzariaPolar'
-          slot-name: 'production'
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          app-name: PizzariaPolar01
+          slot-name: production
           package: .
