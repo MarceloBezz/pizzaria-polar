@@ -3,13 +3,16 @@ name: Deploy para Azure
 on:
   push:
     branches:
-      - master
+      - actions
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Ver arquivos no diretório
+        run: ls -la
+
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
