@@ -1,10 +1,11 @@
 const { hash } = require('bcrypt');
-const UsuarioService = require('../service/usuarioService.js')
-const usuarioService = new UsuarioService();
 const { verify } = require('jsonwebtoken');
 const jsonSecret = require('../database/config/jsonSecret.js');
+const UsuarioService = require('../service/usuarioService.js')
+const usuarioService = new UsuarioService();
 const AuthService = require('../service/authService.js')
 const authService = new AuthService();
+const dadosToken = require('../middlewares/pegarDadosToken.js')
 
 class UsuarioController {
     async pegaTodos(req, res) {
@@ -19,10 +20,10 @@ class UsuarioController {
     async pegarPorId(req, res) {
         let id = null;
         if (req.session?.user?.token) {
-            console.log(req.session.user)
-            const token = req.session.user.token
-            const decoded = verify(token, jsonSecret.secret);
-            id = decoded.id;
+            // const token = req.session.user.token
+            // const decoded = verify(token, jsonSecret.secret);
+            // id = decoded.id;
+            id = dadosToken(req.session.user.token).id
         } else {
             id = req.params.id;
         }
@@ -53,6 +54,7 @@ class UsuarioController {
         try {
             req.body.role = "CLIENTE"
             req.body.senha = await this.criptografarSenha(req.body.senha)
+            req.body.foto = "perfil.png"
 
             const novoUsuario = await usuarioService.cadastrar(req.body)
 
@@ -100,6 +102,13 @@ class UsuarioController {
     async criptografarSenha(senhaDigitada) {
         const hashSenha = await hash(senhaDigitada, 8);
         return hashSenha;
+    }
+
+    async novaFoto(req, res) {
+        const { id } = dadosToken(req.session.user.token)
+        await usuarioService.atualizar({ foto: req.file.filename }, id)  
+
+        res.status(200).send("OK")
     }
 }
 

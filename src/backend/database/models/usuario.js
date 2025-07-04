@@ -29,7 +29,13 @@ module.exports = (sequelize, DataTypes) => {
     bairro: DataTypes.STRING,
     cidade: DataTypes.STRING,
     complemento: DataTypes.STRING,
-    role: DataTypes.STRING
+    role: DataTypes.STRING,
+    telefone: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    foto: DataTypes.STRING
+
   }, {
     sequelize,
     modelName: 'Usuario',

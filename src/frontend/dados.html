@@ -31,11 +31,15 @@
   <h2 class="titulo">MEUS DADOS: </h2>
 
   <main>
-    <div>
-      <img src="img/perfil.png" alt="foto perfil" class="foto">
-    </div>
-    <div class="geral">
+      <form id="form-foto" action="http://localhost:8080/api/usuario/foto" method="post" enctype="multipart/form-data">
+        <label for="foto">
+          <img src="http://localhost:8080/api/usuario/foto" alt="foto perfil" class="foto">
+        </label>
 
+        <input id="foto" type="file" name="foto" accept="image/*" style="display: none;">
+      </form>
+      
+      <div class="geral">
       <form>
         <div class="grupo">
           <div class="botao">

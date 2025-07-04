@@ -1,0 +1,110 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: absolute;
+}
+
+/* Conteúdo principal */
+main {
+    display: inline;
+    gap: 40px;
+    padding: 30px;
+    /* background-color: gray; */
+    margin: 0 auto;
+}
+
+#primeiroTexto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#titu {
+    margin-top: 150px;
+}
+
+#titulo {
+    text-align: center;
+    font-size: 2.2em;
+    margin-top: 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#imagemTexto1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#imagemUrso {
+    width: 350px;
+    height: 350px;
+    margin-left: 100px;
+}
+
+#sobre1 {
+    margin-top: 80px;
+    margin-left: 150px;
+    gap: 20px;
+    width: 100%;
+    height: 400px;
+    max-width: 600px;
+    margin-right: 50px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#titu2 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo2{
+     text-align: center;
+    font-size: 2.2em;
+    margin-top: 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#segundoTexto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+#sobre2 {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#imagemEquipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+#fotoEquipe {
+    width: 350px;
+    height: 350px;
+}
+
+#legendaFoto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

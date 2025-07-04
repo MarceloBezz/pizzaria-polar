@@ -6,7 +6,10 @@ const numero = document.getElementById("numero")
 const btnLogout = document.getElementById("logout")
 const txtNomeUsuario = document.getElementById("usuario")
 
-window.addEventListener('load', async () => {
+const inputFoto = document.getElementById("foto")
+const formFoto = document.getElementById("form-foto")
+
+window.addEventListener('DOMContentLoaded', async () => {
     const req = await fetch("http://localhost:8080/api/usuario/0")
     const dados = await req.json();
     
@@ -27,3 +30,22 @@ btnLogout.addEventListener('click', async () => {
     alert(data.mensagem)
     window.location.href = "http://localhost:8080/home"
 })
+
+inputFoto.addEventListener('change', async () => {
+    if (inputFoto.files.length > 0) {
+        const formData = new FormData();
+        formData.append('foto', inputFoto.files[0])
+
+        const response = await fetch("http://localhost:8080/api/usuario/foto", {
+            method: "POST",
+            body: formData
+        })
+
+        if (response.ok) {
+            alert("Foto alterada com sucesso!")
+            window.location.reload()
+        } else {
+            alert("Erro ao alterar foto!")
+        }
+    }
+});

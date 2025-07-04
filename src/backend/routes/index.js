@@ -21,6 +21,7 @@ const routes = (app) => {
         apiRoutes);
         
     app.use(express.static(path.join(frontendPath, 'static')));
+    app.use(express.static(path.join(__dirname, '..', 'database', 'fotos')))
 }
 
 module.exports = routes;
