@@ -46,7 +46,7 @@ class UsuarioController {
                 return res.status(404).json("Nenhum usuário encontrado!");
             }
         } catch (error) {
-
+            return res.status(404).json(error)
         }
     }
 

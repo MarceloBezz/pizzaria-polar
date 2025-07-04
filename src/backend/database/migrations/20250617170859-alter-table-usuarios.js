@@ -3,15 +3,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('usuarios', 'telefone', {
-      type: Sequelize.STRING,
-      allowNull: true
-    });
+    const table = await queryInterface.describeTable('usuarios');
+    
+    if (!table.telefone) {
+      await queryInterface.addColumn('usuarios', 'telefone', {
+        type: Sequelize.STRING,
+        allowNull: true,
+      });
+    }
 
-    await queryInterface.addColumn('usuarios', 'foto', {
-      type: Sequelize.STRING,
-      allowNull: true
-    });
+    if (!table.foto) {
+      await queryInterface.addColumn('usuarios', 'foto', {
+        type: Sequelize.STRING,
+        allowNull: true,
+      });
+    }
   },
 
   async down (queryInterface, Sequelize) {
