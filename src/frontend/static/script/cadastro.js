@@ -135,7 +135,7 @@ function validarPrimeiroBloco() {
     const temCaracteres = senha.length >= 6 && senha.length <= 30;
     const temNumero = /\d/.test(senha);
     const temMaiuscula = /[A-Z]/.test(senha);
-    const temSimbolo = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+    const temSimbolo = /[!@#$%^&*(),.?":{}|<>_]/.test(senha);
 
     const nomeCorreto = nome.length >= 3 && /(?!\d)/.test(nome)
     const emailCorreto = email.length >= 13 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
