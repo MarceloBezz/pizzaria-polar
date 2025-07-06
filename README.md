@@ -11,6 +11,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 * `HTML 5`
 * `CSS`
+* `Javascript`
 * `Node.js` v20.11.0
 * `Bcrypt` v5.1.1 
 * `Express` v5.1 
