@@ -2,7 +2,7 @@ const btnLogout = document.getElementById("logout")
 
 window.addEventListener('load', async () => {
     try {
-        const response = await fetch('http://localhost:8080/auth/logado');
+        const response = await fetch('https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/auth/logado');
         const data = await response.json();
 
         const btnLogin = document.getElementById("login")
@@ -27,7 +27,7 @@ window.addEventListener('load', async () => {
 })
 
 btnLogout.addEventListener('click', async () => {
-    const response = await fetch('http://localhost:8080/auth/logout', {
+    const response = await fetch('https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/auth/logout', {
         method: "POST"
     });
     const data = await response.json();
