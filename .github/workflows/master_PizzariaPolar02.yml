@@ -1,4 +1,4 @@
-name: Deploy para Azure
+name: Deploy Node.js app to Azure Web App (Linux)
 
 on:
   push:
@@ -15,6 +15,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Instalar dependências
+        run: npm install
+
       - name: Login no Azure
         uses: azure/login@v1
         with:
@@ -23,6 +26,6 @@ jobs:
       - name: Deploy para Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: PizzariaPolar01
+          app-name: PizzariaPolar02
           slot-name: production
           package: .
