@@ -2,6 +2,7 @@ const nome = document.getElementById("nome")
 const email = document.getElementById("email")
 const cep = document.getElementById("cep")
 const numero = document.getElementById("numero")
+const telefone = document.getElementById("telefone")
 
 const btnLogout = document.getElementById("logout")
 const txtNomeUsuario = document.getElementById("usuario")
@@ -9,10 +10,12 @@ const txtNomeUsuario = document.getElementById("usuario")
 const inputFoto = document.getElementById("foto")
 const formFoto = document.getElementById("form-foto")
 
+const formDados = document.getElementById("dados")
+
 window.addEventListener('DOMContentLoaded', async () => {
     const req = await fetch("http://localhost:8080/api/usuario/0")
     const dados = await req.json();
-    
+
     txtNomeUsuario.style.display = 'inline'
     txtNomeUsuario.textContent = `Olá, ${dados.nome}`
 
@@ -20,6 +23,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     email.value = dados.email
     cep.value = dados.cep
     numero.value = dados.numero
+    telefone.value = dados.telefone
+
 })
 
 btnLogout.addEventListener('click', async () => {
@@ -49,3 +54,34 @@ inputFoto.addEventListener('change', async () => {
         }
     }
 });
+
+formDados.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const dados = {}
+    console.log(formDados);
+    
+    const formData = new FormData(formDados)
+
+    formData.forEach((value, key) => {
+        dados[key] = value;
+        console.log(dados[key])
+    })
+
+    try {
+        const response = await fetch("http://localhost:8080/api/usuario/0", {
+            method: 'PUT',
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(dados)
+        });
+
+        if (response.status == 200) {
+            alert("Cliente atualizado com sucesso!");
+            window.location.reload();
+        }
+    } catch (error) {
+        alert("Erro ao atualizar cliente! Tente novamente mais tarde")
+    }
+})

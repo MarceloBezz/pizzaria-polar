@@ -20,9 +20,6 @@ class UsuarioController {
     async pegarPorId(req, res) {
         let id = null;
         if (req.session?.user?.token) {
-            // const token = req.session.user.token
-            // const decoded = verify(token, jsonSecret.secret);
-            // id = decoded.id;
             id = dadosToken(req.session.user.token).id
         } else {
             id = req.params.id;
@@ -69,9 +66,15 @@ class UsuarioController {
 
     async atualizar(req, res) {
         try {
-            const { id } = req.params;
+            let id = null            
+            if (req.session?.user?.token) {
+                id = dadosToken(req.session.user.token).id
+            } else {
+                id = req.params.id;
+            }
             const usuario = await usuarioService.pegarPorId(id);
-
+            console.log(req.body);
+            
             if (!usuario) {
                 return res.status(404).json("Usuário não encontrado!");
             }
