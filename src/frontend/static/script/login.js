@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
         senha: form.senha.value
     };
 
-    const response = await fetch('http://localhost:8080/auth/login', {
+    const response = await fetch('https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ form.addEventListener('submit', async (e) => {
     const result = await response.json();
     if (result.accessToken) {
         alert(`Login bem sucedido! Bem vindo!`)
-        window.location.href = "http://localhost:8080/dados"
+        window.location.href = "https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/dados"
     } else {
         alert("Usuário e/ou senha incorreto(s)!")
     }

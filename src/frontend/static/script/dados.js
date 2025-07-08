@@ -13,7 +13,7 @@ const formFoto = document.getElementById("form-foto")
 const formDados = document.getElementById("dados")
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const req = await fetch("http://localhost:8080/api/usuario/0")
+    const req = await fetch("https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/usuario/0")
     const dados = await req.json();
 
     txtNomeUsuario.style.display = 'inline'
@@ -28,12 +28,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 })
 
 btnLogout.addEventListener('click', async () => {
-    const response = await fetch('http://localhost:8080/auth/logout', {
+    const response = await fetch('https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/auth/logout', {
         method: "POST"
     });
     const data = await response.json();
     alert(data.mensagem)
-    window.location.href = "http://localhost:8080/home"
+    window.location.href = "https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/home"
 })
 
 inputFoto.addEventListener('change', async () => {
@@ -41,7 +41,7 @@ inputFoto.addEventListener('change', async () => {
         const formData = new FormData();
         formData.append('foto', inputFoto.files[0])
 
-        const response = await fetch("http://localhost:8080/api/usuario/foto", {
+        const response = await fetch("https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/usuario/foto", {
             method: "POST",
             body: formData
         })
@@ -69,7 +69,7 @@ formDados.addEventListener('submit', async (event) => {
     })
 
     try {
-        const response = await fetch("http://localhost:8080/api/usuario/0", {
+        const response = await fetch("https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/usuario/0", {
             method: 'PUT',
             headers: {
                 'Content-Type': "application/json"

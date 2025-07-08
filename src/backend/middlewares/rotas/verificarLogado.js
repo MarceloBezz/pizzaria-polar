@@ -5,6 +5,6 @@ module.exports = async (req, res, next) => {
        await logado(req.session.user.token);
        next();
     } catch (error) {
-       res.redirect("http://localhost:8080/home");
+       res.redirect("https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/home");
     }
 }

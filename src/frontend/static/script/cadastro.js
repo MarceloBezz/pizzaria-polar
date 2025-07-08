@@ -22,7 +22,7 @@ function anterior() {
 async function buscaCEP() {
     const cep = document.getElementById("cep").value.replace(/\D/g, '');
 
-    const response = await fetch(`http://localhost:8080/api/cep/${cep}`);
+    const response = await fetch(`https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/cep/${cep}`);
     const data = await response.json();
     
     const cepValidacao = document.getElementById('cep-validacao')
@@ -66,7 +66,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (event
     });
 
     try {
-        const response = await fetch('http://localhost:8080/api/usuario', {
+        const response = await fetch('https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/usuario', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (event
         });
         if (response.status == 200) {
             alert("Cliente cadastrado com sucesso!")
-            window.location.href = "http://localhost:8080/dados"
+            window.location.href = "https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/dados"
         }
 
     } catch (error) {
@@ -149,7 +149,7 @@ async function emailJaExistente(input) {
     const resposta = document.getElementById('email-validacao');
 
     try {
-        const response = await fetch(`http://localhost:8080/api/usuario/email/${email}`, {
+        const response = await fetch(`https://pizzariapolar02-frb6cze4bxbcerbs.brazilsouth-01.azurewebsites.net/api/usuario/email/${email}`, {
             method: 'GET',
         });
         if (response.status == 200) {
